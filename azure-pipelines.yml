@@ -13,6 +13,15 @@ steps:
     Dockerfile: 'Dockerfile'
     tags: 'latest'
     
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: Owaino-ARM-Service-Connection
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
 
 - task: Kubernetes@1
   inputs:
