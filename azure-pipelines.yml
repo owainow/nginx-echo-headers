@@ -7,7 +7,7 @@ pool:
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'unilevervbdacr.azurecr.io'
+    containerRegistry: 'unilever-vbd-private-acr'
     repository: 'nginx-echo-headers'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
@@ -15,7 +15,7 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Owaino ARM Service Connection'
+    azureSubscriptionEndpoint: 'Owaino-ARM-Service-Connection'
     azureResourceGroup: 'unilever-vbd'
     kubernetesCluster: 'unilever-vbd-cluster'
     command: 'apply'
