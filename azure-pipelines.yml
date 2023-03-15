@@ -14,11 +14,10 @@ steps:
     tags: 'latest'
     
 - task: AzureCLI@2
-  displayName: Azure CLI
   inputs:
-    azureSubscription: Owaino-ARM-Service-Connection
-    scriptType: ps
-    scriptLocation: inlineScript
+    azureSubscription: 'Owaino-ARM-Service-Connection'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
     inlineScript: |
       az --version
       az account show
