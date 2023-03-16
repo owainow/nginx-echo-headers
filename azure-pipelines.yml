@@ -21,6 +21,7 @@ steps:
     inlineScript: |
       az --version
       az account set --subscription 4de19e4b-3d22-4e36-9fd7-54b9c225ef52
+      az aks get-credentials --resource-group unilever-vbd --name unilever-vbd-cluster
       az account show
 - task: Kubernetes@1
   inputs:
