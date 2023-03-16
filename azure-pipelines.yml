@@ -22,13 +22,11 @@ steps:
       az --version
       az account set --subscription 4de19e4b-3d22-4e36-9fd7-54b9c225ef52
       az account show
-
 - task: Kubernetes@1
   inputs:
-        connectionType: 'Azure Resource Manager'
-        azureSubscriptionEndpoint: 'Owaino-ARM-Service-Connection'
-        azureResourceGroup: 'unilever-vbd'
-        kubernetesCluster: 'unilever-vbd-cluster'
-        namespace: 'default'
-        command: 'apply'
-        arguments: '-f deploy.yaml'
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'azure-devops-sa'
+    namespace: 'colors-api'
+    command: 'apply'
+    arguments: '-f deploy.yaml'
+
